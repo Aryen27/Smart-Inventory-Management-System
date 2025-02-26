@@ -16,18 +16,28 @@ int menu(){
 
 class Product{
 private:
-    int product_id, quantity;
-    char product_name[50];
+    int product_id, quantity, price;
+    string product_name;
 
 public:
     // Add Product
-    // Remove Product
+
     // Display Product
+    void display(){
+        cout << "Product Id:" << product_id << endl;
+        cout << "Product Name:" << product_name << endl;
+        cout << "Quantity:" << quantity << endl;
+        cout << "Price:" << price << endl;
+    }
+    // Remove Product
 };
 
 int main()
 {
     int choice;
+
+    Product p1;
+
     while ((choice = menu()) != 0)
     {
         switch (choice)
@@ -37,7 +47,7 @@ int main()
             break;
 
         case 2:
-            cout << "Display products here"<<endl;
+            p1.display();
             break;
 
         default:
