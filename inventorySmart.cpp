@@ -8,6 +8,9 @@ int menu(){
     cout << "Enter 0 to exit" << endl;
     cout << "Enter 1 to add products" << endl;
     cout << "Enter 2 to display products" << endl;
+    cout << "Enter 3 to update product name" << endl;
+    cout << "Enter 4 to update product quantity" << endl;
+    cout << "Enter 5 to update product price" << endl;
     cout << "------------------------------" << endl;
     cout << "Enter your choice" << endl;
     cin >> choice;
@@ -44,7 +47,22 @@ public:
         cout << "Quantity:" << quantity << endl;
         cout << "Price:" << price << endl;
     }
-    // Remove Product
+    // Update Product detail
+    void setProductName(){
+        cout << "Enter the new name of the product:" << endl;
+        cin.ignore();
+        getline(cin, this->product_name);
+    }
+    
+    void setQuantity(){
+        cout << "Enter the updated quantity:" << endl;
+        cin >> quantity;
+    }
+
+    void setPrice(){
+        cout << "Enter the updated price:" << endl;
+        cin >> price;
+    }
 };
 
 int main()
@@ -63,6 +81,18 @@ int main()
 
         case 2:
             p1.display();
+            break;
+
+        case 3:
+            p1.setProductName();
+            break;
+
+        case 4:
+            p1.setQuantity();
+            break;
+
+        case 5:
+            p1.setPrice();
             break;
 
         default:
