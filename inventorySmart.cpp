@@ -20,7 +20,22 @@ private:
     string product_name;
 
 public:
+    Product(): product_id(0), quantity(0), price(0), product_name("It which must not be named!")
+    {}
+
     // Add Product
+    void addProduct(){
+        cout << "Enter Product Id:" <<  endl;
+        cin>>product_id;
+        cout << "Enter Product Name:"<< endl;
+        cin.ignore();
+        getline(cin, product_name);
+        cout << "Enter Quantity:" << endl;
+        cin >> quantity;
+        cout << "Enter Price:" << endl;
+        cin >> price;
+        cout << "Product Added!" << endl;
+    }
 
     // Display Product
     void display(){
@@ -43,7 +58,7 @@ int main()
         switch (choice)
         {
         case 1:
-            cout << "Add products here"<<endl;
+            p1.addProduct();
             break;
 
         case 2:
