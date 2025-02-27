@@ -24,8 +24,10 @@ private:
     static int generateID;
 
 public:
-    Product(): product_id(++generateID), quantity(0), price(0), product_name("It which must not be named!")
-    { }
+    Product(): Product(++generateID, 0, 0, "It which must not be named!"){}
+
+    Product(int id, int quantity, int price, string name): product_id(id), quantity(quantity), price(price), product_name(name)
+    {}
 
     // Add Product
     void addProduct(){
@@ -74,7 +76,7 @@ int main()
     Product p2;
 
 
-    while ((choice = menu()) != 0)
+while ((choice = menu()) != 0)
     {
         switch (choice)
         {
