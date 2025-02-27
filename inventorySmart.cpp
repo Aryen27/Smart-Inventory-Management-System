@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <fstream>
 using namespace std;
 
 int menu(){
@@ -11,6 +12,7 @@ int menu(){
     cout << "Enter 3 to update product name" << endl;
     cout << "Enter 4 to update product quantity" << endl;
     cout << "Enter 5 to update product price" << endl;
+    cout << "Enter 5 to search product" << endl;
     cout << "------------------------------" << endl;
     cout << "Enter your choice" << endl;
     cin >> choice;
@@ -24,7 +26,7 @@ private:
     static int generateID;
 
 public:
-    Product(): Product(++generateID, 0, 0, "It which must not be named!"){}
+    Product(): Product(++generateID, 0, 0, "It which must not be named!"){} //Constructor Delegation
 
     Product(int id, int quantity, int price, string name): product_id(id), quantity(quantity), price(price), product_name(name)
     {}
@@ -64,6 +66,14 @@ public:
         cout << "Enter the updated price:" << endl;
         cin >> price;
     }
+
+    void findProduct(int id){
+        
+    }
+
+    void findProduct(string name){
+        
+    }
 };
 
 int Product::generateID=100;
@@ -72,11 +82,22 @@ int main()
 {
     int choice;
 
+    Product **prods= new Product *[20];
+
+    // for (int i = 0; i < 21; i++) {
+    //     prods[i];
+    // }
+
+    // for (int i = 0; i < 21; i++) {
+    //     prods[i].display();
+    // }
+
+    // Add sample data
+
     Product p1;
     Product p2;
 
-
-while ((choice = menu()) != 0)
+    while ((choice = menu()) != 0)
     {
         switch (choice)
         {
@@ -100,6 +121,10 @@ while ((choice = menu()) != 0)
 
         case 5:
             p1.setPrice();
+            break;
+
+        case 6:
+            cout << "Search function is coming soon...." << endl;
             break;
 
         default:
