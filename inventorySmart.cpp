@@ -21,15 +21,14 @@ class Product{
 private:
     int product_id, quantity, price;
     string product_name;
+    static int generateID;
 
 public:
-    Product(): product_id(0), quantity(0), price(0), product_name("It which must not be named!")
-    {}
+    Product(): product_id(++generateID), quantity(0), price(0), product_name("It which must not be named!")
+    { }
 
     // Add Product
     void addProduct(){
-        cout << "Enter Product Id:" <<  endl;
-        cin >> product_id;
         cout << "Enter Product Name:"<< endl;
         cin.ignore();
         getline(cin, product_name);
@@ -65,11 +64,15 @@ public:
     }
 };
 
+int Product::generateID=100;
+
 int main()
 {
     int choice;
 
     Product p1;
+    Product p2;
+
 
     while ((choice = menu()) != 0)
     {
@@ -77,10 +80,12 @@ int main()
         {
         case 1:
             p1.addProduct();
+            p2.addProduct();
             break;
 
         case 2:
             p1.display();
+            p2.display();
             break;
 
         case 3:
