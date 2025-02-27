@@ -29,7 +29,7 @@ public:
     // Add Product
     void addProduct(){
         cout << "Enter Product Id:" <<  endl;
-        cin>>product_id;
+        cin >> product_id;
         cout << "Enter Product Name:"<< endl;
         cin.ignore();
         getline(cin, product_name);
