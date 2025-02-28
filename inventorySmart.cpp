@@ -26,9 +26,9 @@ private:
     static int generateID;
 
 public:
-    Product(): Product(++generateID, 0, 0, "It which must not be named!"){} //Constructor Delegation
+    Product(): Product("It which must not be named!", 0, 0){} //Constructor Delegation
 
-    Product(int id, int quantity, int price, string name): product_id(id), quantity(quantity), price(price), product_name(name)
+    Product( string name, int quantity, int price ): product_id(++generateID), quantity(quantity), price(price), product_name(name)
     {}
 
     // Add Product
@@ -76,14 +76,17 @@ public:
     }
 };
 
+
+
 int Product::generateID=100;
 
 int main()
 {
-    int choice, index=0;
+    int choice, index=20;
+    
 
-    Product *prods= new Product[20];
-
+    Product *prods[40];
+    
     // Add sample data
 
     while ((choice = menu()) != 0)
@@ -92,7 +95,8 @@ int main()
         {
         case 1:{
             if(index < 40){
-                prods[index].addProduct();
+                prods[index] = new Product();
+                prods[index]->addProduct();
                 index++;
             }
             break;
@@ -100,7 +104,7 @@ int main()
 
         case 2:{
             for (int i = 0; i < index; i++){
-                prods[i].display();
+                prods[i]->display();
             }
             break;
         }
@@ -125,5 +129,10 @@ int main()
             break;
         }
     }
-    return 0;
+
+    for (int i = 0; i < 40; i++){
+        delete prods[i];
+        prods[i] = NULL;
+    }
+        return 0;
 }
