@@ -76,16 +76,41 @@ public:
     }
 };
 
-
-
 int Product::generateID=100;
+
+
+
+void addData(Product **p){
+    p[0] = new Product("Football",5, 699);
+    p[1] =new Product("Basketball", 3, 799);
+    p[2] =new Product("Tennis Racket", 8, 1200);
+    p[3] =new Product("Baseball Bat", 6, 950);
+    p[4] =new Product("Soccer Ball", 10, 499);
+    p[5] =new Product("Hockey Stick", 4, 1500);
+    p[6] =new Product("Swimming Goggles", 12, 350);
+    p[7] =new Product("Dumbbells", 15, 1299);
+    p[8] =new Product("Yoga Mat", 20, 799);
+    p[9] =new Product("Resistance Bands", 25, 299);
+    p[10] =new Product("Skipping Rope", 30, 199);
+    p[11] =new Product("Running Shoes", 7, 2499);
+    p[12] =new Product("Fitness Tracker", 5, 3500);
+    p[13] =new Product("Pilates Ring", 14, 899);
+    p[14] =new Product("Kettlebells", 9, 1799);
+    p[15] =new Product("Balance Ball", 16, 699);
+    p[16] =new Product("Ski Poles", 3, 2499);
+    p[17] =new Product("Snowboard", 2, 12999);
+    p[18] =new Product("Inline Skates", 4, 3500);
+    p[19] =new Product("Skateboard", 11, 899);
+}
+
 
 int main()
 {
     int choice, index=20;
     
-
+    
     Product *prods[40];
+    addData(prods);
     
     // Add sample data
 
