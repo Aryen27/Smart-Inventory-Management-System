@@ -69,6 +69,8 @@ public:
 
     friend void setProductName(Product **p, int id);
 
+    friend void setProductName(Product **p, string name);
+
     void findProduct(int id){
         
     }
@@ -116,6 +118,21 @@ void setProductName(Product **p, int id){
         }
     }
 }
+
+void setProductName(Product **p, string name){
+    
+    for (int i = 0; i < pindex; i++){
+        if(p[i]->product_name==name){
+            string str;
+            cout << "Enter the new name of the product:" << endl;
+            cin.ignore();
+            getline(cin, str);
+            p[i]->product_name = str;
+        }
+    }
+}
+
+
 int main()
 {
     int choice, id;
@@ -154,9 +171,31 @@ int main()
             2. If it matches then update name
             3. Else print invalid id/name.
             */
-            cout << "Enter Product Id: ";
-            cin >> id;
-            setProductName(prods, id);
+            int option;
+            cout << "Enter 1 to search Product by ID or 2 to search Product by Product Name" << endl;
+            cin >> option;
+            switch (option)
+            {
+            case 1:{
+                cout << "Enter Product Id: ";
+                cin >> id;
+                setProductName(prods, id);
+                break;
+            }
+
+            case 2:{
+                cout << "Enter Product Name: "<<endl;
+                cin.ignore();
+                getline(cin, name);
+                setProductName(prods, name);
+                break;
+            }
+            
+            default:
+                cout << "Enter a valid number!" << endl;
+                break;
+            }
+            ;
             break;
         }
 
