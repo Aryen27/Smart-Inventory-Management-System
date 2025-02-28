@@ -50,9 +50,9 @@ public:
         cout << "Quantity:" << quantity << endl;
         cout << "Price:" << price << endl;
     }
-    // Update Product detail
+
     void setProductName(){
-        cout << "Enter the new name of the product:" << endl;
+        cout << "Enter the name of the product:" << endl;
         cin.ignore();
         getline(cin, this->product_name);
     }
@@ -67,6 +67,8 @@ public:
         cin >> price;
     }
 
+    friend void setProductName(Product **p, int id);
+
     void findProduct(int id){
         
     }
@@ -77,8 +79,7 @@ public:
 };
 
 int Product::generateID=100;
-
-
+int pindex = 20;
 
 void addData(Product **p){
     p[0] = new Product("Football",5, 699);
@@ -103,39 +104,61 @@ void addData(Product **p){
     p[19] =new Product("Skateboard", 11, 899);
 }
 
-
+void setProductName(Product **p, int id){
+    
+    for (int i = 0; i < pindex; i++){
+        if(p[i]->product_id==id){
+            string str;
+            cout << "Enter the new name of the product:" << endl;
+            cin.ignore();
+            getline(cin, str);
+            p[i]->product_name = str;
+        }
+    }
+}
 int main()
 {
-    int choice, index=20;
-    
-    
+    int choice, id;
+    string name;
+
     Product *prods[40];
-    addData(prods);
     
     // Add sample data
-
+    addData(prods);
+    
     while ((choice = menu()) != 0)
     {
         switch (choice)
         {
         case 1:{
-            if(index < 40){
-                prods[index] = new Product();
-                prods[index]->addProduct();
-                index++;
+            if(pindex < 40){
+                prods[pindex] = new Product();
+                prods[pindex]->addProduct();
+                pindex++;
             }
             break;
         }
 
         case 2:{
-            for (int i = 0; i < index; i++){
+            for (int i = 0; i < pindex; i++){
                 prods[i]->display();
             }
             break;
         }
-        case 3:
-            // p1.setProductName();
+        case 3:{
+            // Update name of Product
+            /*Steps:
+            1. Take input from user: //Use another switch case here to choose between Product Id and Name
+            a. Product Id
+            b. Product Name
+            2. If it matches then update name
+            3. Else print invalid id/name.
+            */
+            cout << "Enter Product Id: ";
+            cin >> id;
+            setProductName(prods, id);
             break;
+        }
 
         case 4:
             // p1.setQuantity();
