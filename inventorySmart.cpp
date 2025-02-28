@@ -80,47 +80,38 @@ int Product::generateID=100;
 
 int main()
 {
-    int choice;
+    int choice, index=0;
 
-    Product **prods= new Product *[20];
-
-    // for (int i = 0; i < 21; i++) {
-    //     prods[i];
-    // }
-
-    // for (int i = 0; i < 21; i++) {
-    //     prods[i].display();
-    // }
+    Product *prods= new Product[20];
 
     // Add sample data
-
-    Product p1;
-    Product p2;
 
     while ((choice = menu()) != 0)
     {
         switch (choice)
         {
-        case 1:
-            p1.addProduct();
-            p2.addProduct();
+        case 1:{
+            if(index < 40){
+                prods[index].addProduct();
+            }
             break;
+        }
 
         case 2:
-            p1.display();
-            p2.display();
+            // p1.display();
+            // p2.display();
             break;
 
         case 3:
-            p1.setProductName();
+            // p1.setProductName();
             break;
 
         case 4:
-            p1.setQuantity();
+            // p1.setQuantity();
             break;
 
         case 5:
-            p1.setPrice();
+            // p1.setPrice();
             break;
 
         case 6:
