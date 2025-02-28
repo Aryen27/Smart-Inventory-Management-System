@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <fstream>
 using namespace std;
 
 int menu(){
@@ -12,7 +11,7 @@ int menu(){
     cout << "Enter 3 to update product name" << endl;
     cout << "Enter 4 to update product quantity" << endl;
     cout << "Enter 5 to update product price" << endl;
-    cout << "Enter 5 to search product" << endl;
+    cout << "Enter 6 to search your favourite product" << endl;
     cout << "------------------------------" << endl;
     cout << "Enter your choice" << endl;
     cin >> choice;
@@ -153,6 +152,9 @@ int main()
                 prods[pindex]->addProduct();
                 pindex++;
             }
+            else{
+                cout << "Inventory is full!" << endl;
+            }
             break;
         }
 
@@ -184,7 +186,7 @@ int main()
             }
 
             case 2:{
-                cout << "Enter Product Name: "<<endl;
+                cout << "Enter Product Name: ";
                 cin.ignore();
                 getline(cin, name);
                 setProductName(prods, name);
