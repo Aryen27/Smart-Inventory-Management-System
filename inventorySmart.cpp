@@ -93,15 +93,17 @@ int main()
         case 1:{
             if(index < 40){
                 prods[index].addProduct();
+                index++;
             }
             break;
         }
 
-        case 2:
-            // p1.display();
-            // p2.display();
+        case 2:{
+            for (int i = 0; i < index; i++){
+                prods[i].display();
+            }
             break;
-
+        }
         case 3:
             // p1.setProductName();
             break;
