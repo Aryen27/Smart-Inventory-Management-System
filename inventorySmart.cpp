@@ -111,7 +111,7 @@ void setProductName(Product **p, int id){
         if(p[i]->product_id==id){
             string str;
             cout << "Enter the new name of the product:" << endl;
-            cin.ignore();
+            // cin.ignore();
             getline(cin, str);
             p[i]->product_name = str;
         }
@@ -124,7 +124,7 @@ void setProductName(Product **p, string name){
         if(p[i]->product_name==name){
             string str;
             cout << "Enter the new name of the product:" << endl;
-            cin.ignore();
+            // cin.ignore();
             getline(cin, str);
             p[i]->product_name = str;
         }
